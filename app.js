@@ -5,4 +5,6 @@ app.get('/', function(req, res) {
   res.send('OK');
 });
 
-app.listen(3000);
+//encapsulate app inside of node module
+module.exports = app;
+

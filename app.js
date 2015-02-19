@@ -10,7 +10,15 @@ app.get('/', function(req, res) {
 // Cities end-point
 app.get('/cities', function(req, res) {
   var cities = ["Miami","New York","Richmond"];
-  res.json(cities);
+    // if request query is made
+    if (req.query.limit >= 0) {
+      // return the requested amount starting from index 0 to limit passed
+      res.json(cities.slice(0, req.query.limit));
+    // otherwise
+    } else {
+      // return all cities
+      res.json(cities);
+  }
 });
 
 
